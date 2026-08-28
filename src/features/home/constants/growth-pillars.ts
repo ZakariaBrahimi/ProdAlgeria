@@ -1,3 +1,16 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/home/constants/growth-pillars
+ *
+ * Purpose:
+ * Content for GrowthSection's four "built for your growth" cards.
+ * Copy, not data — there's no backend concept of a "growth pillar,"
+ * this is fixed marketing content and is expected to stay static.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { GrowthPillar } from "@/features/home/types";
 
 export const GROWTH_PILLARS: GrowthPillar[] = [

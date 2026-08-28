@@ -1,3 +1,30 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Footer
+ *
+ * Purpose:
+ * Site-wide footer. Renders once from the root layout (ADR 003), the
+ * same way as Header.
+ *
+ * Responsibilities:
+ * - Logo / home link
+ * - Footer nav (same `NAV_LINKS` as Header)
+ * - Social links
+ * - Copyright line + Privacy/Terms
+ *
+ * Known Limitation:
+ * `SOCIAL_LINKS` hrefs and the Privacy/Terms links are all `#` —
+ * there are no real social accounts or legal pages linked yet.
+ * Update these before this ships publicly.
+ *
+ * Dependencies:
+ * - social-icons (LinkedinIcon, XIcon, YoutubeIcon, InstagramIcon)
+ * - NAV_LINKS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import Link from "next/link";
 
 import {

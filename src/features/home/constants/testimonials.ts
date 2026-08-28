@@ -1,3 +1,21 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/home/constants/testimonials
+ *
+ * Purpose:
+ * Content for the "What our members say" carousel.
+ *
+ * Known Limitation:
+ * These are illustrative quotes, not real member submissions. Before
+ * this ships publicly, either get real testimonials with consent to
+ * publish, or clearly relabel the section — attributing invented
+ * quotes to a named, photo-identified person is a credibility and
+ * trust risk once the site is live.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { Testimonial } from "@/features/home/types";
 
 export const TESTIMONIALS: Testimonial[] = [

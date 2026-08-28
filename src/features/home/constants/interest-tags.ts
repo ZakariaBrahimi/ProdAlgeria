@@ -1,3 +1,19 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/home/constants/interest-tags
+ *
+ * Purpose:
+ * Pills shown in the stats bar's "Explore by interest" row.
+ *
+ * Known Limitation:
+ * Every tag links to `href: "#"` — there is no topic-filtered view
+ * to link to yet. Once Community or Jobs support filtering by topic,
+ * these should link there instead of being inert.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { InterestTag } from "@/features/home/types";
 
 export const INTEREST_TAGS: InterestTag[] = [

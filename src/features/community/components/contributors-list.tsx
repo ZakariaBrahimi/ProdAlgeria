@@ -1,7 +1,31 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: ContributorsList
+ *
+ * Purpose:
+ * The "Top contributors this month" sidebar card on Community —
+ * avatar, name, role, and an achievement badge per contributor.
+ *
+ * When to use:
+ * Community's page only, in the sidebar alongside `DiscussionFeed`.
+ *
+ * Known Limitation:
+ * `TOP_CONTRIBUTORS` is static example data (ADR 005); "this month"
+ * in the heading is aspirational copy, not a real time window yet.
+ *
+ * Dependencies:
+ * - GeneratedAvatar, Badge
+ * - TOP_CONTRIBUTORS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { Badge } from "@/components/ui/badge";
 import { TOP_CONTRIBUTORS } from "@/features/community/constants/contributors";
 
+/** Maps each Contributor.badge value to the Badge component's visual variant. */
 const BADGE_VARIANT = {
   "Top Contributor": "default",
   Mentor: "accent",

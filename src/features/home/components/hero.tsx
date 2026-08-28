@@ -1,3 +1,40 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Hero
+ *
+ * Purpose:
+ * Home's above-the-fold section: headline, subcopy, primary CTAs,
+ * member-count social proof, and the illustrated visual with its two
+ * floating "recent activity" cards.
+ *
+ * When to use:
+ * Home's page only — this is not a reusable section, it's
+ * Home-specific content and copy.
+ *
+ * Responsibilities:
+ * - Render the headline/CTA column and the illustration/activity
+ *   column, side by side on desktop, stacked on mobile
+ * - Render the "active discussions" line twice (see note below)
+ *
+ * Known Limitation:
+ * The "active discussions every day" row appears in two places in
+ * the JSX (once inside the visual column, `lg:hidden`; once outside
+ * it, `hidden lg:flex`). This isn't accidental duplication — on
+ * mobile it needs to sit directly under the illustration (inside the
+ * stacked visual column), but on desktop it needs to span the full
+ * hero width below both columns. Tailwind can't reposition a single
+ * element into two different parents at different breakpoints, so
+ * both variants exist and only one is ever visible at a time. Keep
+ * them in sync if the copy changes.
+ *
+ * Dependencies:
+ * - Button, AvatarStack
+ * - HeroIllustration, ActivityCard
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import Link from "next/link";
 import { Users } from "lucide-react";
 
@@ -43,6 +80,9 @@ export function Hero() {
   return (
     <section className="relative px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-28 lg:pt-14">
       <div className="mx-auto grid grid-cols-1 max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)]">
+        {/* -------------------------------------------------- */}
+        {/* Headline column: copy, CTAs, member-count social proof */}
+        {/* -------------------------------------------------- */}
         <div>
           <h1 className="text-balance text-4xl sm:text-5xl lg:text-h1 font-extrabold leading-[1.05] tracking-tight text-white">
             Algeria&apos;s Home for
@@ -83,6 +123,9 @@ export function Hero() {
           </div>
         </div>
 
+        {/* -------------------------------------------------- */}
+        {/* Visual column: illustration + floating activity cards */}
+        {/* -------------------------------------------------- */}
         <div className="relative">
           <div
             className="pointer-events-none absolute -inset-x-10 -top-16 h-72 rounded-full bg-[conic-gradient(from_200deg_at_50%_100%,rgba(108,77,255,0.55),rgba(37,99,235,0.35)_35%,rgba(16,185,129,0.4)_65%,transparent_80%)] blur-2xl"
@@ -106,6 +149,7 @@ export function Hero() {
             className="absolute -right-2 bottom-6 sm:-right-6 sm:bottom-10"
           />
 
+          {/* Mobile-only "active discussions" row — see file header note. */}
           <div className="mt-6 flex items-center gap-3 lg:hidden">
             <AvatarStack
               members={DISCUSSION_MEMBERS}
@@ -120,6 +164,7 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Desktop-only "active discussions" row — see file header note. */}
       <div className="mx-auto mt-6 hidden max-w-7xl items-center gap-3 lg:flex">
         <AvatarStack
           members={DISCUSSION_MEMBERS}

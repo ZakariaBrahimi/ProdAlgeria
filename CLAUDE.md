@@ -91,8 +91,9 @@ Each feature owns its own `components`, `hooks`, `types`, `api`, `validation`, `
 
 ## Code Rules
 
-- Production-ready code only: no placeholders, no TODOs, no mock implementations unless explicitly requested, no duplicated code.
+- Production-ready code only: no placeholders, no mock implementations unless explicitly requested, no duplicated code.
 - Strict TypeScript. Follow SOLID where it actually helps. Readability over cleverness. Optimize for maintainability.
+- TODOs are allowed only in the form `// TODO (vX): <what, and why it's deferred>` — never a bare `// TODO`. See Documentation Standards below.
 
 ## Accessibility
 
@@ -134,3 +135,96 @@ Buttons, Inputs, Cards, Dialogs, Dropdowns, Tabs, Navbar, Sidebar, Footer, Avata
 ## Working process
 
 Every time code is generated: first explain why this architecture was chosen, potential improvements, and trade-offs — then generate the code. If a better approach exists, say so before implementing. Think like a Senior Staff Engineer reviewing production code.
+
+## Documentation & Maintainability Standards
+
+There is one developer today; there will be a team in 2-3 years. Every file is written for that future developer, who has never seen this codebase.
+
+**Comments explain WHY, never WHAT.** Code should be self-explanatory for the *what*; comments are for business rules, architectural decisions, complex algorithms, performance optimizations, security considerations, and known limitations. Never write a comment that just restates the line below it.
+
+```ts
+// Bad — restates the code
+// Increment the counter
+counter++;
+
+// Good — explains why
+// We increment the retry counter before reattempting the API call.
+// This prevents infinite retry loops caused by intermittent network failures.
+retryCount++;
+```
+
+**Every source file starts with a header block:**
+
+```ts
+/**
+ * ------------------------------------------------------------------
+ * Component: UserProfileCard
+ *
+ * Purpose:
+ * Displays a user's public profile information.
+ *
+ * Responsibilities:
+ * - Render avatar
+ * - Display profile metadata
+ * - Handle loading and empty states
+ *
+ * Dependencies:
+ * - Avatar
+ * - Badge
+ * - Button
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+```
+
+For a component, the header also covers what it does, when to use it, what props it accepts, and any limitations — a component doc, not just a file doc.
+
+**Every exported function gets JSDoc** (`@param`, `@returns`).
+
+**Every custom hook's header states** purpose, dependencies, side effects, and return value.
+
+**The API layer documents,** per endpoint: purpose, expected request, expected response, auth requirements, possible errors.
+
+**Business rules are always explained**, with the decision behind them:
+
+```ts
+/**
+ * Users without verified email cannot publish events.
+ *
+ * Business Decision:
+ * Reduce spam and fake organizers.
+ */
+```
+
+**Complex components get section comments** dividing their logical blocks:
+
+```ts
+// --------------------------------------------------
+// Search Filters
+// --------------------------------------------------
+```
+
+**Every feature folder has a `README.md`** covering purpose, folder structure, main components, API dependencies, state management, and future improvements.
+
+**Architecture decisions are recorded as ADRs** under `/docs/adr/` (`001-feature-based-architecture.md`, `002-authentication.md`, ...), each with Context, Decision, Alternatives Considered, and Consequences. Write one whenever a real decision is made — not speculatively for decisions not yet taken.
+
+**TODOs always carry a version and a reason:**
+
+```ts
+// Bad
+// TODO
+
+// Good
+// TODO (v2):
+// Add infinite scrolling once backend pagination supports cursor-based pagination.
+```
+
+**Naming is descriptive, not abbreviated**, except for industry-standard abbreviations:
+
+```
+Good:  calculateProfileCompletion, fetchUpcomingEvents, CommunityNavigation, useAuthenticatedUser
+Avoid: calc(), getData(), util(), tmp()
+```
+
+The bar: every feature should be understandable without asking the original author. This project should read like a professional open-source repository.

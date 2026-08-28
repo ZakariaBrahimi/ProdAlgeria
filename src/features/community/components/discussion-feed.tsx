@@ -1,5 +1,46 @@
 "use client";
 
+/**
+ * ------------------------------------------------------------------
+ * Component: DiscussionFeed
+ *
+ * Purpose:
+ * Community's main content: a row of category filter tabs and the
+ * (filtered) discussion list below them, with a real empty state
+ * when a category has no matching posts.
+ *
+ * When to use:
+ * Rendered once by Community's page (`src/app/community/page.tsx`)
+ * with the full `posts` list as a prop.
+ *
+ * Props:
+ * - `posts`: the full, unfiltered list of discussions. Filtering by
+ *   category happens client-side against this array — see
+ *   Architectural Decision below for why, and its limit.
+ *
+ * Side Effects:
+ * None — filtering is a pure derivation of local state, no network
+ * calls or subscriptions.
+ *
+ * Return:
+ * A `<div>` containing the `role="tablist"` filter row and the
+ * filtered post list (or the empty state).
+ *
+ * Architectural Decision:
+ * Filtering happens entirely in the browser (`Array.filter` over the
+ * `posts` prop, re-run via `useMemo` when the category or the posts
+ * themselves change) rather than as a server request per category
+ * click. This is correct today because `posts` is a small, fully
+ * loaded static list (ADR 005) — there is nothing to gain from a
+ * round-trip. Once discussions are paginated from a real API, this
+ * needs to change: filtering should become a query param that
+ * triggers a new server fetch, because client-side filtering only
+ * works correctly against a fully-loaded list, not one page of many.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { useMemo, useState } from "react";
 import { MessageCircleOff } from "lucide-react";
 

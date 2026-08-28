@@ -1,3 +1,41 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: GeneratedAvatar
+ *
+ * Purpose:
+ * Deterministic placeholder avatar — a two-color gradient circle
+ * plus a simple silhouette — for community members who have no
+ * uploaded profile photo. See ADR 004 for why generated SVG was
+ * chosen over a photo placeholder service.
+ *
+ * When to use:
+ * Anywhere a `CommunityMember` needs a visual representation and no
+ * real photo exists (which is everywhere today — see ADR 004/005).
+ * Once the Profile feature ships real photo uploads, this becomes
+ * the fallback for a member *without* a photo, not the default for
+ * everyone.
+ *
+ * Props:
+ * - `seed`: deterministic input driving the gradient's two colors
+ *   (via `PALETTE`) and the SVG `<linearGradient>` id. The same seed
+ *   always produces the same avatar. Not a real user id — see
+ *   `CommunityMember.avatarSeed`.
+ * - `name`: used only as the SVG's accessible name (`aria-label`),
+ *   never rendered as visible text (e.g. initials).
+ * - `size`: pixel width/height (square). Defaults to 40.
+ * - `className`: forwarded to the `<svg>` root.
+ *
+ * Limitations:
+ * Only 5 base colors in `PALETTE`, combined pairwise via `seed` and
+ * `seed + 2` — with more than a handful of members on screen at once
+ * (e.g. a future full member directory), expect visible color
+ * repetition. Not a concern for the small counts (3-4 avatars) used
+ * today.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 const PALETTE = ["#6c4dff", "#2563eb", "#10b981", "#8b6bf2", "#38bdf8"];
 
 type GeneratedAvatarProps = {
@@ -7,11 +45,6 @@ type GeneratedAvatarProps = {
   className?: string;
 };
 
-/**
- * Deterministic placeholder avatar (gradient + silhouette) for community
- * members without an uploaded photo. Swap for the real profile photo once
- * the Profile feature ships.
- */
 export function GeneratedAvatar({
   seed,
   name,

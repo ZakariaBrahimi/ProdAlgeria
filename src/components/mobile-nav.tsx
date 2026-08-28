@@ -1,5 +1,34 @@
 "use client";
 
+/**
+ * ------------------------------------------------------------------
+ * Component: MobileNav
+ *
+ * Purpose:
+ * The `< lg` counterpart to Header's desktop nav — a hamburger button
+ * that opens a full-screen overlay with the same links and actions.
+ *
+ * When to use:
+ * Rendered by `Header` only; not meant to be used standalone.
+ *
+ * Side Effects:
+ * While open, locks page scroll (`document.body.style.overflow =
+ * "hidden"`) and listens for `Escape` to close — both are cleaned up
+ * in the `useEffect` return function, including when the component
+ * unmounts while open, so scroll never gets stuck locked.
+ *
+ * Architectural Decision:
+ * The panel is `fixed inset-x-0 top-16 bottom-0` (full remaining
+ * viewport below the header), not a small dropdown — an earlier
+ * version anchored it directly under the toggle button, which left
+ * page content visible and clickable behind/around the "open" panel.
+ * A full-height overlay with its own opaque `bg-dark` background
+ * avoids that.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, Users } from "lucide-react";

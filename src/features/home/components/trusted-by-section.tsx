@@ -1,3 +1,28 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: TrustedBySection
+ *
+ * Purpose:
+ * The "Trusted by professionals from leading companies" logo/wordmark
+ * strip.
+ *
+ * When to use:
+ * Home's page only.
+ *
+ * Architectural Decision:
+ * Company names render as styled text (`<span>` with weight/italic
+ * variants), not image logos — see ADR 004's reasoning for avatars,
+ * which applies here too (no external image dependency for content
+ * this project has no rights-cleared logo assets for yet). See
+ * `constants/trusted-companies.ts` for the rights-clearance caveat.
+ *
+ * Dependencies:
+ * - TRUSTED_COMPANIES
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { TRUSTED_COMPANIES } from "@/features/home/constants/trusted-companies";
 
 export function TrustedBySection() {

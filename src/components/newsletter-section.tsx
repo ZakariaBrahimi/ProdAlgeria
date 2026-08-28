@@ -1,3 +1,29 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: NewsletterSection
+ *
+ * Purpose:
+ * The dark "Stay in the loop" CTA panel — heading, copy, social
+ * proof, and the newsletter form. Used as the closing section on
+ * both Home and Community.
+ *
+ * When to use:
+ * At the end of any marketing/content page that wants the newsletter
+ * CTA. Server Component; the only interactive part
+ * (`NewsletterForm`) is its own Client Component island.
+ *
+ * Known Limitation:
+ * `NEWSLETTER_MEMBERS` is static example data for the avatar social
+ * proof, not a real "who just subscribed" feed.
+ *
+ * Dependencies:
+ * - AvatarStack
+ * - NewsletterForm
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { Mail } from "lucide-react";
 
 import { AvatarStack } from "@/components/avatar-stack";

@@ -1,3 +1,30 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Card, CardHeader, CardTitle, CardDescription,
+ *            CardContent, CardFooter
+ *
+ * Purpose:
+ * Generic bordered container primitive with optional structured
+ * header/content/footer regions.
+ *
+ * When to use:
+ * A self-contained content block that needs a consistent card
+ * chrome. Not yet used by Home or Community — their cards (event
+ * cards, discussion cards, testimonial cards) are currently
+ * hand-styled `<article>`/`<div>` elements written before this
+ * primitive existed to match specific per-section layouts. New card
+ * UI should use this component; consider migrating the existing ones
+ * to it if their layouts turn out not to need anything Card can't
+ * express.
+ *
+ * Props:
+ * All standard `<div>` (or `<h3>`/`<p>` for CardTitle/CardDescription)
+ * props, forwarded directly.
+ *
+ * Author: ProdAlgeria (canonical shadcn/ui source — see ADR 002)
+ * ------------------------------------------------------------------
+ */
+
 import * as React from "react";
 
 import { cn } from "@/lib/utils";

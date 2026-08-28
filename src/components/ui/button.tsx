@@ -1,3 +1,41 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Button
+ *
+ * Purpose:
+ * The single button primitive for the whole app. Every clickable
+ * action (nav CTAs, form submits, carousel controls) should use this
+ * rather than a bare `<button>`, so variant/size stay consistent.
+ *
+ * When to use:
+ * Any clickable action. Use `asChild` to render the button's styling
+ * on a different element (typically `next/link`'s `Link`, for a
+ * button that navigates) instead of a real `<button>`.
+ *
+ * Props:
+ * - `variant`: default | secondary | outline | outline-inverse |
+ *   ghost | link | destructive. `outline-inverse` is this project's
+ *   addition to the canonical shadcn set, for CTAs on dark
+ *   (`bg-dark`) sections where `outline` (built for a light surface)
+ *   would be unreadable.
+ * - `size`: default | sm | lg | icon.
+ * - `asChild`: render as the child element (via Radix `Slot`)
+ *   instead of a `<button>`, so `className` and event handlers still
+ *   apply to e.g. a wrapped `<Link>`.
+ *
+ * Limitations:
+ * `asChild` requires exactly one child element — passing text or
+ * multiple children will throw at runtime (a Radix `Slot`
+ * constraint, not specific to this file).
+ *
+ * Dependencies:
+ * - @radix-ui/react-slot
+ * - class-variance-authority
+ *
+ * Author: ProdAlgeria (canonical shadcn/ui source — see ADR 002)
+ * ------------------------------------------------------------------
+ */
+
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";

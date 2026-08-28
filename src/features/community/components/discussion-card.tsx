@@ -1,3 +1,33 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: DiscussionCard
+ *
+ * Purpose:
+ * One discussion thread preview: author, role, timestamp, pinned
+ * indicator, category badge, title, body, and like/comment counts.
+ *
+ * When to use:
+ * Rendered by `DiscussionFeed` for each post in the (filtered) list.
+ * Purely presentational — takes a `DiscussionPost` and renders it,
+ * no state or data fetching of its own.
+ *
+ * Props:
+ * - `post`: the `DiscussionPost` to render.
+ *
+ * Known Limitation:
+ * The like/comment counts and their icons are display-only — this is
+ * a card, not a control. There is no click handler on the heart or
+ * comment icon; liking and opening the thread to view/add comments
+ * both require the (not-yet-built) individual-thread view and
+ * real auth, so they're intentionally not wired up here.
+ *
+ * Dependencies:
+ * - GeneratedAvatar, Badge
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { Heart, MessageCircle, Pin } from "lucide-react";
 
 import { GeneratedAvatar } from "@/components/generated-avatar";

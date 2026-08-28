@@ -1,3 +1,37 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Header
+ *
+ * Purpose:
+ * Site-wide primary navigation. Renders once from the root layout
+ * (`src/app/layout.tsx`) so every page gets it — see ADR 003 for why
+ * it moved here from being Home-specific.
+ *
+ * When to use:
+ * Never imported directly by a page — it's wired into the root
+ * layout. A page should not render its own header.
+ *
+ * Responsibilities:
+ * - Logo / home link
+ * - Desktop nav (`NAV_LINKS`, hidden below `lg`)
+ * - Desktop "Log in" / "Join Community" actions (hidden below `lg`)
+ * - Delegates the equivalent mobile UI to `MobileNav`
+ *
+ * Known Limitation:
+ * "Log in" and "Join Community" render as real `Button`s but have no
+ * `href`/`onClick` — there is no Auth page yet (CLAUDE.md priority
+ * #7) for them to link to. They're present for visual/brand
+ * completeness; wire them up once Auth exists.
+ *
+ * Dependencies:
+ * - Button, Badge
+ * - MobileNav
+ * - NAV_LINKS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import Link from "next/link";
 import { Users } from "lucide-react";
 

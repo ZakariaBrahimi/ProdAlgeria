@@ -1,3 +1,24 @@
+/**
+ * ------------------------------------------------------------------
+ * Page: Community (`/community`)
+ *
+ * Purpose:
+ * Composes Community's sections. Owns only layout and section order
+ * and the `DISCUSSIONS` data hand-off; all content and interaction
+ * live under `features/community/components/` — see
+ * `features/community/README.md`.
+ *
+ * Responsibilities:
+ * - Section order: CommunityIntro, then a two-column layout
+ *   (DiscussionFeed + ContributorsList sidebar), then
+ *   NewsletterSection
+ * - Page-level `<title>`/`<meta description>`, overriding the root
+ *   layout's default
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { Metadata } from "next";
 
 import { NewsletterSection } from "@/components/newsletter-section";

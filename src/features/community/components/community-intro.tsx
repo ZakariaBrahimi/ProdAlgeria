@@ -1,3 +1,28 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: CommunityIntro
+ *
+ * Purpose:
+ * The Community page's header: title, description, and a live
+ * discussion/member count line.
+ *
+ * When to use:
+ * Community's page only, as the first section.
+ *
+ * Known Limitation:
+ * `discussionCount` is derived from `DISCUSSIONS.length`, so it's
+ * accurate for the static example data, but "1,248+ members" is
+ * hard-coded — see ADR 005. Once discussions come from a real API,
+ * `discussionCount` should come from that response's total, not
+ * `.length` of whatever page of results was fetched.
+ *
+ * Dependencies:
+ * - DISCUSSIONS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { MessagesSquare, Users } from "lucide-react";
 
 import { DISCUSSIONS } from "@/features/community/constants/discussions";

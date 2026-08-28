@@ -1,3 +1,36 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: ActivityCard
+ *
+ * Purpose:
+ * One floating "recent activity" card shown over the hero
+ * illustration (author, role, post body, and either like/comment
+ * counts or a category tag).
+ *
+ * When to use:
+ * Rendered by Hero only, positioned absolutely by the caller via
+ * `className` — this component doesn't know or care where it sits.
+ *
+ * Props:
+ * - `post`: the `ActivityPost` content to render.
+ * - `className`: merged with the card's own styling; Hero uses this
+ *   to set each card's absolute position (`top`/`bottom`/`right`).
+ *
+ * Limitations:
+ * Renders like/comment counts *or* a tag, never both — `ActivityPost`
+ * allows both to be set simultaneously, but this component only
+ * checks `likeCount !== undefined` and `tag` independently, so if
+ * both are present on the data, both sections render (that's
+ * intentional; there's no post in `ACTIVITY_POSTS` today that sets
+ * both, but nothing prevents it).
+ *
+ * Dependencies:
+ * - GeneratedAvatar, Badge
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { Heart, MessageCircle } from "lucide-react";
 
 import { GeneratedAvatar } from "@/components/generated-avatar";

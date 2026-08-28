@@ -1,3 +1,37 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: GrowthSection
+ *
+ * Purpose:
+ * "A community built for your growth" — intro copy plus a 4-card
+ * grid of growth pillars (Ask & Share, Connect, Learn Together,
+ * Grow Your Career).
+ *
+ * When to use:
+ * Home's page only.
+ *
+ * Architectural Decision:
+ * `GROWTH_PILLARS` (in constants/) stores each pillar's icon as a
+ * string key (`"message-circle"`, etc.), not a JSX element or a
+ * component reference. The `ICONS` map here is what resolves that
+ * key to an actual Lucide component. This keeps the constants file
+ * plain data (safe to eventually replace with an API response
+ * without any JSX in it) at the cost of needing to keep `ICONS` and
+ * `GrowthPillar["icon"]`'s union in sync — TypeScript enforces that
+ * sync via `Record<GrowthPillar["icon"], ...>`, so a missing icon
+ * mapping is a compile error, not a silent runtime gap.
+ *
+ * Known Limitation:
+ * "See how it works" links to `#how-it-works`, an anchor that
+ * doesn't exist on this page yet.
+ *
+ * Dependencies:
+ * - GROWTH_PILLARS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { ArrowRight, BookOpen, MessageCircle, TrendingUp, Users } from "lucide-react";
 
 import { GROWTH_PILLARS } from "@/features/home/constants/growth-pillars";

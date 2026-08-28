@@ -1,3 +1,30 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: StatsBar
+ *
+ * Purpose:
+ * The white card directly below Home's hero: member/discussion/event
+ * counts, plus the "Explore by interest" tag row.
+ *
+ * When to use:
+ * Home's page only, immediately after the dark hero section — its
+ * negative top margin (`-mt-10`/`-mt-14`/`-mt-16`) is intentional,
+ * pulling the card up to overlap the hero's bottom edge. It expects
+ * to render directly after a dark full-bleed section; used anywhere
+ * else, that overlap would look like a layout bug instead of the
+ * intended "floating card" effect.
+ *
+ * Known Limitation:
+ * `STATS` values (1,248+ members, 320+ discussions, 45+ events) are
+ * hard-coded, not computed from real data — see ADR 005.
+ *
+ * Dependencies:
+ * - INTEREST_TAGS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { ArrowRight, Briefcase, MessagesSquare, Users } from "lucide-react";
 
 import { INTEREST_TAGS } from "@/features/home/constants/interest-tags";

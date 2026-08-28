@@ -1,3 +1,33 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Badge
+ *
+ * Purpose:
+ * Small pill label — nav "New" tags, discussion category labels,
+ * contributor badges ("Top Contributor", "Mentor", "Rising Star").
+ *
+ * When to use:
+ * Any short, non-interactive status or category label. For an
+ * interactive filter control (selectable, clickable), don't reuse
+ * Badge — see the category filter tabs in `DiscussionFeed`, which
+ * are plain `<button>`s styled similarly but are a different
+ * component because they carry real interaction and `role="tab"`
+ * semantics that a label shouldn't have.
+ *
+ * Props:
+ * - `variant`: default | secondary | accent | outline |
+ *   outline-inverse. `outline-inverse` (this project's addition, see
+ *   Button) is for badges on dark sections.
+ * - `asChild`: render as the child element instead of a `<span>`.
+ *
+ * Dependencies:
+ * - @radix-ui/react-slot
+ * - class-variance-authority
+ *
+ * Author: ProdAlgeria (canonical shadcn/ui source — see ADR 002)
+ * ------------------------------------------------------------------
+ */
+
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";

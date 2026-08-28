@@ -1,5 +1,38 @@
 "use client";
 
+/**
+ * ------------------------------------------------------------------
+ * Component: NewsletterForm
+ *
+ * Purpose:
+ * Email capture form used by NewsletterSection on both Home and
+ * Community.
+ *
+ * When to use:
+ * Rendered by NewsletterSection only — not meant to be used
+ * standalone, since it has no heading/context of its own.
+ *
+ * Business Decision:
+ * Validation uses a hand-rolled regex with `noValidate` on the
+ * `<form>`, instead of the browser's native `type="email"`
+ * validation. Native validation UI (the built-in tooltip/bubble)
+ * can't be styled to match the product's design system and its
+ * appearance varies by browser — this keeps the error message
+ * visually consistent with the rest of the form.
+ *
+ * Known Limitation:
+ * There is no submission endpoint yet (no backend — see ADR 005).
+ * "Success" here only means "passed client-side email validation";
+ * no email is actually sent or stored anywhere. Wire this up to a
+ * real newsletter API once one exists.
+ *
+ * Dependencies:
+ * - Button, Input
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { useId, useState } from "react";
 
 import { Button } from "@/components/ui/button";

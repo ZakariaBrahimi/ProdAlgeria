@@ -1,3 +1,24 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/community/constants/discussions
+ *
+ * Purpose:
+ * The discussion feed's content. Static example threads (ADR 005)
+ * standing in for real posts until the backend and posting exist.
+ *
+ * Known Limitation:
+ * `category` values here must exactly match an entry in
+ * `constants/categories.ts` (`DISCUSSION_CATEGORIES`) or a post
+ * silently never appears under any filter tab except "All" —
+ * TypeScript catches a typo'd category at compile time since both
+ * are typed against the same `DiscussionCategory` union, but a
+ * *valid* category that's simply missing from the tab list would not
+ * be caught. Keep the two lists in sync.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { DiscussionPost } from "@/features/community/types";
 
 export const DISCUSSIONS: DiscussionPost[] = [

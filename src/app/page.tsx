@@ -1,3 +1,22 @@
+/**
+ * ------------------------------------------------------------------
+ * Page: Home (`/`)
+ *
+ * Purpose:
+ * Composes Home's sections in order. Owns only layout and section
+ * order — all content and behavior live in each section's own
+ * component under `features/home/components/`. See
+ * `features/home/README.md` for the full feature breakdown.
+ *
+ * Responsibilities:
+ * - The dark hero wrapper (background + radial glow) around `Hero`
+ * - Section order: Hero, StatsBar, GrowthSection, EventsSection,
+ *   TestimonialsSection, TrustedBySection, NewsletterSection
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { Hero } from "@/features/home/components/hero";
 import { StatsBar } from "@/features/home/components/stats-bar";
 import { GrowthSection } from "@/features/home/components/growth-section";

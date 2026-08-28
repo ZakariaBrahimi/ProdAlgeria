@@ -1,3 +1,34 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: EventsSection
+ *
+ * Purpose:
+ * "Upcoming Events" — a 3-card grid of events with date, description,
+ * attendee avatars, and a Register link.
+ *
+ * When to use:
+ * Home's page only. Standing in for a real Events page (CLAUDE.md
+ * priority #4) until that exists — see ADR 005.
+ *
+ * Architectural Decision:
+ * Same icon-key-to-component pattern as GrowthSection: `ICONS` maps
+ * each event's string `icon` field to a Lucide component, keeping
+ * `constants/events.ts` as plain data. See GrowthSection's file
+ * header for the full reasoning.
+ *
+ * Known Limitation:
+ * Each card's "Register" link (`href="#register"`) doesn't go
+ * anywhere real yet — there's no registration flow until Events
+ * exists as its own feature.
+ *
+ * Dependencies:
+ * - Button, AvatarStack
+ * - UPCOMING_EVENTS
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { ArrowRight, CalendarCheck, Mic, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

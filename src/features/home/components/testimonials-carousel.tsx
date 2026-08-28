@@ -1,5 +1,57 @@
 "use client";
 
+/**
+ * ------------------------------------------------------------------
+ * Component: TestimonialsCarousel
+ *
+ * Purpose:
+ * The "What our members say" heading, prev/next controls, and a
+ * horizontally scrollable, scroll-snapped row of testimonial cards
+ * with a Motion `whileInView` reveal animation.
+ *
+ * When to use:
+ * Rendered by `TestimonialsSection` with a `testimonials` prop; not
+ * meant to be reused for other card carousels without review, since
+ * its scroll-distance math (`scrollByCard`) assumes uniform card
+ * widths.
+ *
+ * Props:
+ * - `testimonials`: the full list to render; there is no
+ *   pagination/virtualization, so keep this list short (a handful of
+ *   cards) — see Limitations below.
+ *
+ * Side Effects:
+ * None persistent. `scrollByCard` reads the track's current scroll
+ * position and computed styles at click time only.
+ *
+ * Return:
+ * A single `<div>` containing the header row (heading + controls)
+ * and the scrollable track. Not typically referenced by return value
+ * — this is a leaf UI component.
+ *
+ * Architectural Decision:
+ * This is a Client Component (motion + a scroll ref + click
+ * handlers), so the heading and prev/next buttons live here too,
+ * even though they're visually just a section header — splitting
+ * them into a separate Server Component would need to lift the
+ * scroll-control click handlers up through props for no real
+ * benefit, since this entire section is small.
+ *
+ * Limitations:
+ * `scrollByCard` reads the first `[data-testimonial-card]` in the
+ * track to compute one card's width + gap, then scrolls by exactly
+ * that distance — this assumes every card is the same width. If a
+ * future design allows variable-width cards, this needs to scroll to
+ * the next card's actual offset instead of a fixed distance.
+ *
+ * Dependencies:
+ * - motion/react
+ * - GeneratedAvatar
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import { useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowLeft, ArrowRight, Quote, Star, StarHalf } from "lucide-react";

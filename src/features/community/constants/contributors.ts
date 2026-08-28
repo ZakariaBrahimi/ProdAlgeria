@@ -1,3 +1,16 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/community/constants/contributors
+ *
+ * Purpose:
+ * Content for the "Top contributors this month" sidebar. Static
+ * example data (ADR 005) — real contribution counts require posting
+ * and reactions to exist first.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { Contributor } from "@/features/community/types";
 
 export const TOP_CONTRIBUTORS: Contributor[] = [

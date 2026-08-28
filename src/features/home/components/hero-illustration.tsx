@@ -1,3 +1,29 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: HeroIllustration
+ *
+ * Purpose:
+ * The hero's background art — a stylized silhouette of the Algiers
+ * skyline (referencing the Maqam Echahid monument) at dusk, in the
+ * brand gradient.
+ *
+ * Architectural Decision:
+ * A hand-drawn inline SVG, not a stock/generated photo. The hero
+ * image is above-the-fold and directly affects LCP (see CLAUDE.md's
+ * performance section), so a zero-request, zero-dependency asset
+ * beats an external image host on both performance and reliability
+ * grounds. See ADR 004 for the same reasoning applied to avatars.
+ *
+ * When to use:
+ * Home's hero only — this is not a generic decorative component.
+ *
+ * Limitations:
+ * Purely decorative: no props, `role="img"` with a static
+ * `aria-label` describing the scene for screen readers.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
 export function HeroIllustration() {
   return (
     <svg

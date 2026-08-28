@@ -1,3 +1,18 @@
+/**
+ * ------------------------------------------------------------------
+ * Module: features/home/constants/events
+ *
+ * Purpose:
+ * Content for Home's "Upcoming Events" grid. Static example content
+ * standing in for a real Events feature (priority #4) — see
+ * ADR 005. Replace with a real fetch once Events exists; the
+ * `CommunityEvent` shape this data satisfies is what
+ * `EventsSection` expects regardless of where the data comes from.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
+ */
+
 import type { CommunityEvent } from "@/features/home/types";
 
 export const UPCOMING_EVENTS: CommunityEvent[] = [

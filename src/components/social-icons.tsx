@@ -1,10 +1,34 @@
-import type { SVGProps } from "react";
-
 /**
- * lucide-react dropped brand/social marks, so these small, static glyphs
- * live here instead of pulling in a whole extra icon package for four
- * footer links.
+ * ------------------------------------------------------------------
+ * Module: social-icons
+ *
+ * Purpose:
+ * Footer social link icons: LinkedIn, X, YouTube, Instagram.
+ *
+ * Architectural Decision:
+ * CLAUDE.md specifies Lucide as the icon library, but lucide-react
+ * (as of the version installed for this project) does not ship
+ * brand/social marks — they were removed from the package. Rather
+ * than add a second icon library for four static glyphs, these are
+ * hand-authored inline SVGs, kept deliberately simple (no long
+ * generative path data, just each brand's real mark).
+ *
+ * When to use:
+ * Only for these four specific brand marks. Do not add new icons
+ * here — any new *functional* UI icon (not a brand logo) should come
+ * from lucide-react per CLAUDE.md; a new brand logo not covered by
+ * Lucide follows this same pattern.
+ *
+ * Props:
+ * All standard SVG props (`SVGProps<SVGSVGElement>`), forwarded to
+ * the root `<svg>` — pass `className` for sizing/color via
+ * `currentColor`, as every icon here is styled by its container.
+ *
+ * Author: ProdAlgeria
+ * ------------------------------------------------------------------
  */
+
+import type { SVGProps } from "react";
 
 export function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
   return (

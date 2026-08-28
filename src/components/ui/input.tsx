@@ -1,3 +1,26 @@
+/**
+ * ------------------------------------------------------------------
+ * Component: Input
+ *
+ * Purpose:
+ * The single text input primitive — currently used only by
+ * `NewsletterForm`, but every future form field should use this
+ * rather than a bare `<input>`.
+ *
+ * When to use:
+ * Any single-line text input. Pass `aria-invalid="true"` to switch
+ * to the destructive (error) border/ring styling — this component
+ * has no internal validation state of its own, the caller owns that
+ * (see `NewsletterForm` for the pattern).
+ *
+ * Props:
+ * All standard `<input>` props, forwarded directly. `className` is
+ * merged with (and can override) the default styling via `cn()`.
+ *
+ * Author: ProdAlgeria (canonical shadcn/ui source — see ADR 002)
+ * ------------------------------------------------------------------
+ */
+
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
