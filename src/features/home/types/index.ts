@@ -1,13 +1,4 @@
-export type NavLink = {
-  label: string;
-  href: string;
-  badge?: string;
-};
-
-export type CommunityMember = {
-  name: string;
-  avatarSeed: number;
-};
+import type { CommunityMember } from "@/types/member";
 
 export type ActivityPost = {
   author: CommunityMember;

@@ -18,7 +18,7 @@ const ACCENT_CLASSES = {
 
 export function GrowthSection() {
   return (
-    <section id="community" className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="mx-auto grid grid-cols-1 max-w-7xl gap-10 lg:grid-cols-[280px_1fr] lg:gap-12">
         <div>
           <h2 className="text-balance text-3xl sm:text-4xl lg:text-h3 font-bold tracking-tight text-foreground">

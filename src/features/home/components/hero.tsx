@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { AvatarStack } from "@/components/avatar-stack";
 import { HeroIllustration } from "@/features/home/components/hero-illustration";
 import { ActivityCard } from "@/features/home/components/activity-card";
-import type { ActivityPost, CommunityMember } from "@/features/home/types";
+import type { ActivityPost } from "@/features/home/types";
+import type { CommunityMember } from "@/types/member";
 
 const HERO_MEMBERS: CommunityMember[] = [
   { name: "Amel", avatarSeed: 32 },
@@ -60,13 +62,13 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button size="lg" asChild>
-              <a href="#join">
+              <Link href="/community">
                 <Users aria-hidden="true" />
                 Join the Community
-              </a>
+              </Link>
             </Button>
             <Button size="lg" variant="outline-inverse" asChild>
-              <a href="#community">Explore Community</a>
+              <Link href="/community">Explore Community</Link>
             </Button>
           </div>
 

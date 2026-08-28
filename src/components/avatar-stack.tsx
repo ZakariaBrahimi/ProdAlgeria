@@ -1,6 +1,6 @@
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { cn } from "@/lib/utils";
-import type { CommunityMember } from "@/features/home/types";
+import type { CommunityMember } from "@/types/member";
 
 type AvatarStackProps = {
   members: CommunityMember[];

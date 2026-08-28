@@ -1,8 +1,8 @@
 import { Mail } from "lucide-react";
 
 import { AvatarStack } from "@/components/avatar-stack";
-import { NewsletterForm } from "@/features/home/components/newsletter-form";
-import type { CommunityMember } from "@/features/home/types";
+import { NewsletterForm } from "@/components/newsletter-form";
+import type { CommunityMember } from "@/types/member";
 
 const NEWSLETTER_MEMBERS: CommunityMember[] = [
   { name: "Nassim", avatarSeed: 19 },

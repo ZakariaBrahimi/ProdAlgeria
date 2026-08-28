@@ -6,7 +6,7 @@ import {
   XIcon,
   YoutubeIcon,
 } from "@/components/social-icons";
-import { NAV_LINKS } from "@/features/home/constants/nav-links";
+import { NAV_LINKS } from "@/constants/nav-links";
 
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "#", icon: LinkedinIcon },
@@ -36,13 +36,13 @@ export function Footer() {
             className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-dark-muted-foreground"
           >
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="transition hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
