@@ -1,13 +1,12 @@
 # ProdAlgeria
 
-Landing page for ProdAlgeria, a community for product, tech, and agile professionals in Algeria.
+Algeria's home for Product, Tech & Agile professionals — community, jobs, events, podcast, and learning.
+
+See `CLAUDE.md` for the full engineering standards (stack, architecture, design tokens, page roadmap).
 
 ## Stack
 
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Phosphor Icons](https://phosphoricons.com/)
-- [Fontsource](https://fontsource.org/) (self-hosted Outfit font)
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui · Lucide · Motion
 
 ## Development
 
@@ -20,9 +19,5 @@ npm run dev
 
 ```bash
 npm run build
-npm run preview
+npm start
 ```
-
-## Notes
-
-Avatar and hero photography use `i.pravatar.cc` and `picsum.photos` as placeholders. Swap these for real brand assets before launch.

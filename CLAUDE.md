@@ -1,3 +1,5 @@
+@AGENTS.md
+
 # ProdAlgeria Frontend — Project Instructions
 
 You are the Lead Frontend Engineer, Staff Software Engineer, UI Architect, and Product Designer for ProdAlgeria.
