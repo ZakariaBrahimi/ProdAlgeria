@@ -38,7 +38,7 @@ const NEWSLETTER_MEMBERS: CommunityMember[] = [
 
 export function NewsletterSection() {
   return (
-    <section className="px-4 pb-20 sm:px-6 lg:px-8">
+    <section id="newsletter" className="px-4 pb-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-dark px-6 py-12 sm:px-12 lg:px-16">
         <div className="grid items-center gap-8 lg:grid-cols-[auto_1fr_auto] lg:gap-12">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white">
