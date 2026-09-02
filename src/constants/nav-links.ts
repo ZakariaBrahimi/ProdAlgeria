@@ -18,6 +18,12 @@
  * `/`. As each page ships, its entry here should be updated to a
  * real route.
  *
+ * `Learn`, `Podcast`, `Resources`, and `About` are commented out
+ * below rather than deleted: none of the four has a real route or
+ * even a Home anchor to land on yet, so surfacing them as clickable
+ * nav items led nowhere. Un-comment each one as its page (or Home
+ * anchor) ships.
+ *
  * Author: ProdAlgeria
  * ------------------------------------------------------------------
  */
@@ -26,11 +32,11 @@ import type { NavLink } from "@/types/nav";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Community", href: "/community", badge: "New" },
-  { label: "Learn", href: "/#learn" },
+  // { label: "Learn", href: "/#learn" },
   { label: "Jobs", href: "/#jobs" },
   { label: "Events", href: "/#events" },
-  { label: "Podcast", href: "/#podcast" },
+  // { label: "Podcast", href: "/#podcast" },
   { label: "Blog", href: "/blog" },
-  { label: "Resources", href: "/#resources" },
-  { label: "About", href: "/#about" },
+  // { label: "Resources", href: "/#resources" },
+  // { label: "About", href: "/#about" },
 ];
